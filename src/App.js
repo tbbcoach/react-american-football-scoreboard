@@ -6,8 +6,8 @@ import "./App.css";
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
 
-  const home = [homescore, setHomeScore] = useState(0);
-  const visitor = [visitorscore, setVisitorScore] = useState(0);
+  const [homescore, setHomeScore] = useState(0);
+  const [visitorscore, setVisitorScore] = useState(0);
 
 
   return (
@@ -32,7 +32,7 @@ function App() {
         <div className="homeButtons">
 
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown">Home Touchdown</button>
+          <button className="homeButtons__touchdown" onClick={() => setHomeScore(homescore + 7)}>Home Touchdown</button>
           <button className="homeButtons__fieldGoal">Home Field Goal</button>
         </div>
         <div className="awayButtons">
