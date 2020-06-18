@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import BottomRow from "./BottomRow";
 import "./App.css";
 
-function App() {
+function App(props) {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
 
   const [homescore, setHomeScore] = useState(0);
   const [visitorscore, setVisitorScore] = useState(0);
+  const [quarter, setQuarter] = useState(1);
 
 
   return (
@@ -15,14 +16,14 @@ function App() {
       <section className="scoreboard">
         <div className="topRow">
           <div className="home">
-            <h2 className="home__name">Lions</h2>
+            <h2 className="home__name">Eagles</h2>
 
-            {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
+            {/* TODO STEP 3 - We neeto change the hardcoded values in these divs to accept dynamic values from our state. */}
             <div className="home__score">{homescore}</div>
           </div>
           <div className="timer">00:03</div>
           <div className="away">
-            <h2 className="away__name">Tigers</h2>
+            <h2 className="away__name">Giants</h2>
             <div className="away__score">{visitorscore}</div>
           </div>
         </div>
@@ -38,6 +39,9 @@ function App() {
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={() => setVisitorScore(visitorscore + 7)}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={() => setVisitorScore(visitorscore + 3)}>Away Field Goal</button>
+        </div>
+        <div className="quarterButton">
+          <button className="quarter_value" onClick={() => setQuarter(props.quarter + 1)}>Quarter</button>
         </div>
       </section>
     </div>
